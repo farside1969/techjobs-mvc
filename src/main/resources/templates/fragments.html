@@ -27,9 +27,11 @@
         </div>
     </div>
 
+    <!-- added to loop list-jobs.html and search.html results -->
     <!-- re-evaluate switch and case. are they best for this application? -->
     <table th:fragment="job-listing" class="job-listing" th:each="job: ${jobs}">
         <tr th:each="mapEntry: ${job}" th:switch="${mapEntry.key}">
+    <!-- capitalize words -->
             <td th:text="${#strings.capitalizeWords(mapEntry.key)}"></td>
             <td th:case="'name'" th:text="${mapEntry.value}"></td>
             <td th:case="*"><a th:href="@{/list/jobs(column=${mapEntry.key},value=${mapEntry.value})}" th:text="${mapEntry.value}"></a></td>
