@@ -14,6 +14,9 @@
 
         <div th:if="${items} and ${items.size()}">
 
+            <!-- displays total count of jobs returned -->
+            <p th:text="${count}">Returns Number of Search Results Found</p>
+
             <table>
 
                 <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">

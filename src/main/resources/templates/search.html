@@ -47,6 +47,9 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+        <!-- displays total count of jobs returned -->
+        <p th:text="${count}">Returns Number of Search Results Found</p>
+        <!-- displays jobs returned -->
         <table th:replace="fragments::job-listing"></table>
 
     </div>

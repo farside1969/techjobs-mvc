@@ -21,6 +21,7 @@ public class SearchController {
         model.addAttribute("columns", ListController.columnChoices);
     // model attribute for search type all
         model.addAttribute("searchType", "all");
+
         return "search";
     }
 
@@ -37,6 +38,10 @@ public class SearchController {
         model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("jobs", jobs);
         model.addAttribute("searchType", searchType);
+
+    //counts the number of results returned
+        model.addAttribute("count", jobs.size() + " results found");
+
         return "search";
     }
 

@@ -13,6 +13,9 @@
         <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #3 - Use the same list display from search.html -->
+        <!-- displays total count of jobs returned -->
+        <p th:text="${count}">Returns Number of Search Results Found</p>
+        <!-- displays jobs returned -->
         <table th:replace="fragments::job-listing"></table>
 
     </div>
