@@ -31,7 +31,7 @@ public class JobData {
      */
     public static ArrayList<String> findAll(String field) {
 
-        // load data, if not already loaded
+    // load data, if not already loaded
         loadData();
 
         ArrayList<String> values = new ArrayList<>();
@@ -44,7 +44,7 @@ public class JobData {
             }
         }
 
-        // Bonus mission: sort the results
+    // sort the results
         Collections.sort(values);
 
         return values;
@@ -52,10 +52,10 @@ public class JobData {
 
     public static ArrayList<HashMap<String, String>> findAll() {
 
-        // load data, if not already loaded
+    // load data, if not already loaded
         loadData();
 
-        // Bonus mission; normal version returns allJobs
+    // return allJobs
         return new ArrayList<>(allJobs);
     }
 
@@ -72,7 +72,7 @@ public class JobData {
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
 
-        // load data, if not already loaded
+    // load data, if not already loaded
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
@@ -97,7 +97,7 @@ public class JobData {
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
-        // load data, if not already loaded
+    // load data, if not already loaded
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
@@ -110,7 +110,7 @@ public class JobData {
                 if (aValue.toLowerCase().contains(value.toLowerCase())) {
                     jobs.add(row);
 
-                    // Finding one field in a job that matches is sufficient
+    // Find field in a job that matches
                     break;
                 }
             }
@@ -124,14 +124,14 @@ public class JobData {
      */
     private static void loadData() {
 
-        // Only load data once
+    // Only load data once
         if (isDataLoaded) {
             return;
         }
 
         try {
 
-            // Open the CSV file and set up pull out column header info and records
+    // Open the CSV file and set up pull out column header info and records
             Resource resource = new ClassPathResource(DATA_FILE);
             InputStream is = resource.getInputStream();
             Reader reader = new InputStreamReader(is);
@@ -142,7 +142,7 @@ public class JobData {
 
             allJobs = new ArrayList<>();
 
-            // Put the records into a more friendly format
+    // Put the records into a more friendly format
             for (CSVRecord record : records) {
                 HashMap<String, String> newJob = new HashMap<>();
 
@@ -153,7 +153,7 @@ public class JobData {
                 allJobs.add(newJob);
             }
 
-            // flag the data as loaded, so we don't do it twice
+    // flag the data as loaded, so we don't do it twice
             isDataLoaded = true;
 
         } catch (IOException e) {
